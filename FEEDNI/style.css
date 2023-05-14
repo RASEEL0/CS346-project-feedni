@@ -1,0 +1,206 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+}
+
+
+
+   /*------------------------------------------ */
+/*sidebar menue styles  */
+.user-img{
+  width: 50px;
+  border-radius: 100%;
+  border: 1px solid #eee;
+}
+
+.sidebar{
+position:absolute;
+top: 0;
+height: 100vh;
+width: 90px;
+background-color: #ded6c8;
+
+padding: 0.4rem 0.8rem;
+transition: all 0.5s ease;
+}
+.sidebar.active ~ .main-content{
+  left: 250px;
+  width: calc(100% - 250px);
+}
+.sidebar.active{
+  width: 250px;
+}
+
+.sidebar #btn{
+  position: absolute;
+  color: rgb(34, 30, 26);
+  top: 0.4rem;
+  left: 50%;
+  font-size: 1.2rem;
+  line-height: 50px;
+  transform: translateX(-50%);
+  cursor: pointer;
+}
+.sidebar.active #btn{
+  left: 90%;
+}
+.sidebar .top .logo{
+  color:  #39332c;
+  display: flex;
+  height: 50px;
+  width: 100%;
+  align-items: center;
+  pointer-events: none;
+  opacity: 0;
+}
+.sidebar.active .top .logo{
+  opacity: 1;
+}
+.top.logo i{
+  font-size: 2rem;
+  margin-right: 5px;
+}
+.user{
+  display: flex;
+  align-items: center;
+  margin: 0.5rem;
+}
+.user p{
+  color: #39332c;
+  opacity: 0;
+  margin-left: 1rem;
+}
+.user a{
+  opacity: 0;
+  color: #39332c;
+}
+
+.bold{
+  font-weight: 600;
+}
+.sidebar p{
+  opacity: 0;
+}
+.sidebar.active p{
+  opacity: 1;
+}
+.sidebar.active a{
+  opacity: 1;
+  padding: 0.4rem;
+}
+.sidebar.active a:hover{
+  color: #413225;
+}
+.sidebar ul li{
+  position: relative;
+  list-style-type: none;
+  height: 50px;
+  width: 90%;
+  margin: 0.8rem auto;
+  line-height: 50px;
+}
+.sidebar ul li a{
+  color: #39332c;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 0.8rem;
+}
+.sidebar ul li a:hover{
+  background-color: #fff;
+  color:#39332c ;
+}
+.sidebar ul li a i{
+  min-width: 50px;
+  text-align: center;
+  height: 50px;
+  border-radius: 12px;
+  line-height: 50px;
+
+}
+.sidebar .nav-item{
+  opacity: 0;
+}
+.sidebar.active .nav-item{
+  opacity: 1;
+}
+.sidebar ul li .tooltip{
+  position: absolute;
+  left: 125px;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  box-shadow: 0 0.8rem 0.8rem rgba(0, 0, 0, 0.2);
+  border-radius: 0.6rem;
+  padding: 0.4rem 1.2rem;
+  line-height: 1.8rem;
+  z-index: 20;
+  opacity: 0;
+}
+.sidebar ul li:hover .tooltip{
+  opacity: 1;
+}
+.sidebar.active ul li .tooltip{
+  display: none;
+}
+.main-content{
+  position: relative;
+  background-color: #fffbf6b6;
+  min-height: 100vh;
+  top: 0;
+  left: 90px;
+  transition: all 0.5s ease;
+  width: calc(100% - 90px);
+  padding: 1rem;
+
+}
+.container{
+  display: flex;
+  justify-content: space-between;
+}
+  /*end sidebar menue styles  */
+   /*------------------------------------------ */
+
+
+/*home page styles */
+
+/* languages page styles :list of languages(english,japanese,... on click go to choes language*/
+
+/* programming page styles: list of programming languages on click go to choies */
+
+/* intern page styles : list of training cites on click show interen experinec on this city*/
+
+/*--------------------------------------*/
+/* catagory page styles: on intern (intern place + intern city) on languages(language list)  on programming (programming languages list)*/
+.button {
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #523f2d;
+}
+
+.button:hover {
+  background-color: #523f2d;
+  color: white;
+}
+
+/*end catagory style*/
+/*--------------------------------------*/
+
+/*  my acount page */
+
+/* log in page styles*/
