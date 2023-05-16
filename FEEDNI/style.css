@@ -6,10 +6,8 @@
   
 }
 
-
-
    /*------------------------------------------ */
-/*sidebar menue styles  */
+/*sidebar menue styles all pages  */
 .user-img{
   width: 50px;
   border-radius: 100%;
@@ -21,7 +19,7 @@ position:absolute;
 top: 0;
 height: 100vh;
 width: 90px;
-background-color: #ded6c8;
+background-color: #ffffffc0;
 
 padding: 0.4rem 0.8rem;
 transition: all 0.5s ease;
@@ -49,6 +47,8 @@ transition: all 0.5s ease;
 }
 .sidebar .top .logo{
   color:  #39332c;
+  font-size:medium;
+  font-weight: 300;
   display: flex;
   height: 50px;
   width: 100%;
@@ -56,6 +56,7 @@ transition: all 0.5s ease;
   pointer-events: none;
   opacity: 0;
 }
+
 .sidebar.active .top .logo{
   opacity: 1;
 }
@@ -133,6 +134,8 @@ transition: all 0.5s ease;
   top: 50%;
   transform: translate(-50%,-50%);
   box-shadow: 0 0.8rem 0.8rem rgba(0, 0, 0, 0.2);
+  color: #fff;
+  background: #00000071;
   border-radius: 0.6rem;
   padding: 0.4rem 1.2rem;
   line-height: 1.8rem;
@@ -147,9 +150,10 @@ transition: all 0.5s ease;
 }
 .main-content{
   position: relative;
-  background-color: #fffbf6b6;
+  background-color:rgba(20, 19, 19, 0.323);
   min-height: 100vh;
   top: 0;
+  color: #fff;
   left: 90px;
   transition: all 0.5s ease;
   width: calc(100% - 90px);
@@ -164,19 +168,30 @@ transition: all 0.5s ease;
    /*------------------------------------------ */
 
 
-/*home page styles */
+/*start home page styles */
+/*--------------------------------------*/
+/*end home page styles */
+
 
 /* languages page styles :list of languages(english,japanese,... on click go to choes language*/
+/*--------------------------------------*/
+/* end languages page styles :list of languages(english,japanese,... on click go to choes language*/
+
 
 /* programming page styles: list of programming languages on click go to choies */
+/*--------------------------------------*/
+/* end programming page styles: list of programming languages on click go to choies */
 
 /* intern page styles : list of training cites on click show interen experinec on this city*/
+/*--------------------------------------*/
+/*end  intern page styles : list of training cites on click show interen experinec on this city*/
+
 
 /*--------------------------------------*/
 /* catagory page styles: on intern (intern place + intern city) on languages(language list)  on programming (programming languages list)*/
-.button {
+.container.button {
   border: none;
-  color: white;
+  color: rgba(255, 255, 255, 0.243);
   padding: 16px 32px;
   text-align: center;
   text-decoration: none;
@@ -187,29 +202,42 @@ transition: all 0.5s ease;
   cursor: pointer;
 }
 
-.button {
-  background-color: white; 
-  color: black; 
-  border: 2px solid #523f2d;
+.main-content .button {
+  background-color: rgb(226, 220, 212); 
+  color: rgb(93, 88, 88); 
+  border: 2px solid #b9b9b9;
+  border-radius: 35%;
+  
+}
+.main-content .button a{
+  color: #413225;
 }
 
-.button:hover {
-  background-color: #523f2d;
+.main-content .button:hover {
+  background-color: #6d5e50;
   color: white;
+  border-radius: 35%;
+
 }
 
 /*end catagory style*/
 /*--------------------------------------*/
 
-/*  my acount page */
+/* start my acount page */
+/*--------------------------------------*/
 
-/* log in page styles*/
+/*  end my acount page */
 
-.login-a{
+
+/*--------------------------------------*/
+/* log in page + register styles*/
+
+body{
   background:url("laptop-aerial-view.jpg") ;
   background-size:cover;
   background-repeat:no-repeat;
   background-attachment: fixed;
+  
 }
 
 .wrapper{
@@ -393,7 +421,6 @@ padding: 10px 0 30px 0;
 .two label a:hover{
   text-decoration: underline;
 }
-
 @media only screen and (max-width: 786px){
   .nav-button{
     display: none;
@@ -451,4 +478,4 @@ padding: 10px 0 30px 0;
   gap:0;
 }
 }
-  /*--------------------end login page------------------*/
+  /*--------------------------------------*/
