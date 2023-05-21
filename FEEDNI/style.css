@@ -5,7 +5,19 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   
 }
-
+body{
+  background:url("laptop-aerial-view.jpg") ;
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-attachment: fixed;
+}
+.logo{
+  position: sticky;
+ padding-top: 1px;
+padding-right:1px;
+padding-left: 50px;
+z-index: 100;
+}
    /*------------------------------------------ */
 /*sidebar menue styles all pages  */
 .user-img{
@@ -231,14 +243,6 @@ transition: all 0.5s ease;
 
 /*--------------------------------------*/
 /* log in page + register styles*/
-
-body{
-  background:url("laptop-aerial-view.jpg") ;
-  background-size:cover;
-  background-repeat:no-repeat;
-  background-attachment: fixed;
-  
-}
 
 .wrapper{
   display: flex;
