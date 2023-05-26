@@ -32,8 +32,8 @@
             </ul>
         </div>
         <div class="nav-button">
-            <button class="btn white-btn" id="loginBtn" onclick="login()">Sign In</button>
-            <button class="btn" id="registerBtn" onclick="register()">Sign Up</button>
+            <button class="btn white-btn" id="loginBtn" onclick="loginS()">Sign In</button>
+            <button class="btn" id="registerBtn" onclick="registerS()">Sign Up</button>
         </div>
         <div class="nav-menu-btn">
             <i class="bx bx-menu" onclick="myMenuFunction()"></i>
@@ -44,25 +44,30 @@
 
       <!-- form box code     -->
       <div class="form-box">
-
-
+                 
                 <!-- log in form  code     -->
-                <div class="login-container" id="login">
+            <div class="login-container" id="login">
+              <form class="form" id="login-form">
+                
                     <div class="top">
-                        <span>Don't have an Account? <a href="#" onclick="register()">Sign Up</a></span>
+                        <span>Don't have an Account? <a href="#" onclick="registerS()">Sign Up</a></span>
                         <header>Log In</header>
                     </div>
-                   
+
+                     <div class="form__message form__message--error"></div>
+
                     <div class="input-box">
-                        <input type="text" class="input-field" autofocus placeholder="Username or Email">
+                        <input type="text" class="input-field" id="logusername" autofocus placeholder="Username or Email">
                         <i class="bx bx-user"></i>
+                       <div class="form__input-erroer-message"></div>
                     </div>
                     <div class="input-box">
-                        <input type="password" class="input-field" autofocus placeholder="Password">
+                        <input type="password" class="input-field" id="logpassword" autofocus placeholder="Password">
                         <i class="bx bx-lock-alt"></i>
+                       <div class="form__input-erroer-message"></div>
                     </div>
                     <div class="input-box">
-                        <input type="submit" class="submit" value="Sign In">
+                        <input type="submit" class="submit" id="loginButten" value="Sign In">
                     </div>
                     <div class="tow-col">
                         <div class="one">
@@ -70,36 +75,53 @@
                             <label for="login-check">Remember Me</label>
                         </div>
                         <div class="two">
+                            <!--email do it-->
                             <label><a href="#">Forgot Password?</a></label>
                         </div>
                     </div>
-                </div>
+                </form>
+            </div>
         <!-- register form  code     -->
         <div class="register-container" id="register">
+         <form class="form" id="register-form">
             <div class="top">
-                <span>Have an Account? <a href="#" onclick="login()">Login</a></span>
+                <span>Have an Account? <a href="#" onclick="loginS()">Login</a></span>
                 <header>Sign Up</header>
             </div>
+            <div class="form__message form__message--error"></div>
             <div class="two-forms">
                 <div class="input-box">
-                    <input type="text" class="input-field" autofocus placeholder="Firstname">
+                    <input type="text" class="input-field"  id="Fname" autofocus placeholder="First name">
                     <i class="bx bx-user"></i>
                 </div>
                 <div class="input-box">
-                    <input type="text" class="input-field" autofocus placeholder="Lastname">
+                    <input type="text" class="input-field" id="Lname" autofocus placeholder="Last name">
                     <i class="bx bx-user"></i>
                 </div>
+                <div class="form__input-erroer-message"></div>
             </div>
             <div class="input-box">
-                <input type="email" class="input-field" autofocus placeholder="Email">
+                <input type="text" class="input-field" id="regUserName" autofocus placeholder="User Name">
+                <i class="bx bx-user"></i>
+                <div class="form__input-erroer-message"></div>
+            </div>
+            <div class="input-box">
+                <input type="email" class="input-field" id="email" autofocus placeholder="Email">
                 <i class="bx bx-envelope"></i>
+                <div class="form__input-erroer-message"></div>
             </div>
             <div class="input-box">
-                <input type="password" class="input-field" autofocus placeholder="Password">
+                <input type="password" class="input-field" id="regPassword" autofocus placeholder="Password">
                 <i class="bx bx-lock-alt"></i>
+                <div class="form__input-erroer-message"></div>
             </div>
             <div class="input-box">
-                <input type="submit" class="submit" value="Register">
+                <input type="password" class="input-field" id="regRepeatPassword" autofocus placeholder="Repeat Password">
+                <i class="bx bx-lock-alt"></i>
+                <span id="repeatpassword-error"></span>
+            </div>
+            <div class="input-box">
+                <input type="submit" class="submit" id="registerButten" value="Register">
             </div>
             <div class="tow-col">
                 <div class="one">
@@ -110,6 +132,7 @@
                     <label><a href="#">Terms & conditition</a></label>
                 </div>
             </div>
+         </form>
         </div>
         
       </div>
