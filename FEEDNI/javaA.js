@@ -13,11 +13,12 @@
 //***************************check login state*********************************************** */
 
 function checkLoginState() {
-   if (localStorage.getItem("isLoggedIn") === "true") {
-     return true;  
-   } 
-   return false;
- }
+  if (localStorage.getItem("isLoggedIn") === "true") {
+    return true;
+  }
+  return false;
+}
+
 /* **************************** code menu for register & login page***********************/
 function myMenuFunction() { 
     var i = document.getElementById("navmenu");
@@ -51,7 +52,7 @@ function registerS(){
 }
 
 
-const containerForm =document.querySelector("form-box");
+const containerForm = document.querySelector(".form-box");
 
 //***************************back to previous page*********************************************** */
 //when user go to login after loggingin he will returen to place he was in 
@@ -63,31 +64,32 @@ const form = document.getElementById("login-form");
 form.addEventListener("submit", login);
 
 function login(event) {
-   event.preventDefault();
-   
-   const username = document.getElementById("logusername").value;
-   const password = document.getElementById("logpassword").value;
+  event.preventDefault();
 
-   if (valid) {
-      alert("Login successful!");
-      localStorage.setItem("isLoggedIn", "true");
-      const previousPage = localStorage.getItem("previousPage");
-      window.location.href = previousPage; 
+  const username = document.getElementById("logusername").value;
+  const password = document.getElementById("logpassword").value;
+
+  const valid = users.some(user => {
+    if (username.includes("@")) {
+      return user.email === username && user.password === password;
     } else {
-      alert("Incorrect username or password!");
+      return user.username === username && user.password === password;
     }
- }
- const users = [
-   //array of users
- ];
- 
-const valid = users.some(user => {  
-  if (input.includes("@")) {
-    return user.email === input && user.password === password;  
+  });
+
+  if (valid) {
+    alert("Login successful!");
+    localStorage.setItem("isLoggedIn", "true");
+    const previousPage = localStorage.getItem("previousPage");
+    window.location.href = previousPage;
   } else {
-    return user.username === input && user.password === password;  
+    alert("Incorrect username or password!");
   }
-});
+}
+
+const users = [
+  //array of users
+];
 
 //***************************REGISTER*********************************************** */
 
@@ -96,149 +98,110 @@ const regForm = document.getElementById("register-form");
 regForm.addEventListener("submit", register);
 
 function register(event) {
-   event.preventDefault();
-   const FirstName =document.getElementById("Fname").value;
-   const LastName =document.getElementById("Lname").value;
-   const regUsername = document.getElementById("regUserName").value;
-   const email = document.getElementById("email").value;
-   const regPassword = document.getElementById("regPassword").value;
-   const repeatPassword = document.getElementById("regRepeatPassword").value;
+  event.preventDefault();
+  const firstName = document.getElementById("Fname").value;
+  const lastName = document.getElementById("Lname").value;
+  const regUsername = document.getElementById("regUserName").value;
+  const email = document.getElementById("email").value;
+  const regPassword = document.getElementById("regPassword").value;
+  const repeatPassword = document.getElementById("regRepeatPassword").value;
 
-   if (regPassword !== regRepeatPassword) {
-       document.getElementById("repeatpassword-error").textContent = "Passwords do not match!";
-     return;  
-    }
-    //code for input constraint (condition )
+  // Validate the user's details
+  if (!checkUsername(regUsername)) {
+    alert("Invalid username!");
+    return;
+  }
 
- //after regester pushing user information  into users matrix befor desgin database
-   users.push({
-     username: regUsername,
-     password: regPassword,
-     email: email
-   });
-   //***********after data base 
- const mongoose = require("mongoose");
+  if (!checkPassword(regPassword)) {
+    alert("Invalid password!");
+    return;
+  }
 
-// Connect to MongoDB change names leater
-mongoose.connect("mongodb://localhost/userdatabase");
+  if (regPassword !== repeatPassword) {
+    alert("Passwords do not match!");
+    return;
+  }
 
-const userSchema = mongoose.Schema({
-  username: String,
-  password: String
-});
+  if (usernameExists(regUsername)) {
+    alert("Username already exists!");
+    return;
+  }
 
-const User = mongoose.model("User", userSchema);
+  saveUser(regUsername, regPassword, firstName, lastName, email);
 
-   
-   function checkPassword(password) {
-      const lowerCaseLetters = /[a-z]/g;
-      const upperCaseLetters = /[A-Z]/g;
-      const numbers = /[0-9]/g;
-      const specialChars = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
-    
-      if(password.length < 8) {
-        return false;
-      }
-    
-      if(!password.match(lowerCaseLetters)) {
-        return false;
-      }
-    
-      if(!password.match(upperCaseLetters)) {
-        return false;  
-      }
-    
-      if(!password.match(numbers)) {
-        return false;    
-      }
-    
-      if(!password.match(specialChars)) {
-        return false;
-      }
-    
-      return true;
-    }
-    
-    function checkUsername(username) {
-      if(username.length < 3 || username.length > 15) {
-        return false;   
-      }
-    
-      const regex = /^[a-zA-Z0-9_]+$/;
-      if(!regex.test(username)) {
-        return false;    
-      }
-    
-      return true;
-    }
-  
-    function usernameExists(username) {
-       return User.findOne({ username }).then(user => !!user);
-  }//end check database
-    //to hash password
-    function hashPassword(password) {
-      const salt = bcrypt.genSaltSync(10);
-      const hash = bcrypt.hashSync(password, salt);
-      return hash;
-    }
-    
-    function saveUser(username, password) {
-      const user = new User({
-        username, 
-        password: hashedPassword
-      });
-      
-      user.save();
-    }
-    function register(username, password) {
-      if (usernameExists(username)) {
-        return "Username exists!";  
-      }
-      
-      if (!checkPassword(password)) {
-        return "Invalid password!";  
-      } 
-      
-      if (!checkUsername(username)) {
-        return "Invalid username!"; 
-      }
-      const hashedPassword = hashPassword(password);
-  
-  saveUser(username, hashedPassword);
-  
-  return "User created!";
-}
-//***********call function 
-const result = register("john", "password123");
-
-// Show result
-if (result === "User created!") {
-  // Clear fields
   alert("Registration successful!");
- document.getElementById("Fname").value = "";
- document.getElementById("Lname").value = "";
- document.getElementById("regUserName").value = "";  
- document.getElementById("regPassword").value = "";
- document.getElementById("email").value = "";
- document.getElementById("regRepeatPassword").value = "";
- 
-} else {
-  // Show error
-  const errorElement = document.getElementById("register-error");
-  
-  if (result === "Username exists!") {
-    errorElement.textContent = "Username already exists!";   
-  } else if (result === "Invalid password!") {
-    errorElement.textContent = "Invalid password!";  
-  } else if (result === "Invalid username!") {
-    errorElement.textContent = "Invalid username!";  
-  }  
+  loginS();
 }
+
+function checkUsername(username) {
+  if (username.length < 6) {
+    return false;
+  }
+
+  return true;
 }
+
+function checkPassword(password) {
+  if (password.length < 8) {
+    return false;
+  }
+
+  return true;
+}
+
+function usernameExists(username) {
+  return users.some(user => user.username === username);
+}
+
+function saveUser(username, password, firstName, lastName, email) {
+  const hashedPassword = hashPassword(password);
+  const user = new User(username, hashedPassword, firstName, lastName, email);
+  users.push(user);
+}
+
+function hashPassword(password) {
+  // Code to hash the password goes here
+  return password;
+}
+
+class User {
+  constructor(username, password, firstName, lastName, email) {
+    this.username = username;
+    this.password = password;
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.email = email;
+  }
+}
+
 //***************************LOGOUT*********************************************** */
- function logout() {
-   localStorage.removeItem("isLoggedIn");
-   localStorage.removeItem("previousPage");
-   window.location.replace("login.html");  
- }
- 
+
+const logoutBtn = document.getElementById("logoutBtn");
+logoutBtn.addEventListener("click", logout);
+
+function logout() {
+  localStorage.setItem("isLoggedIn", "false");
+  window.location.href = "index.html";
+} 
+
+//***************************CHECK LOGIN STATE ON PAGE LOAD*********************************************** */
+
+if (checkLoginState()) {
+  // User is logged in
+  const loginBtn = document.getElementById("loginBtn");
+  const registerBtn = document.getElementById("registerBtn");
+  const logoutBtn = document.getElementById("logoutBtn");
+
+  loginBtn.style.display = "none";
+  registerBtn.style.display = "none";
+  logoutBtn.style.display = "block";
+} else {
+  // User is not logged in
+  const loginBtn = document.getElementById("loginBtn");
+  const registerBtn = document.getElementById("registerBtn");
+  const logoutBtn = document.getElementById("logoutBtn");
+
+  loginBtn.style.display = "block";
+  registerBtn.style.display = "block";
+  logoutBtn.style.display = "none";
+}
