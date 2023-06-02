@@ -10,198 +10,62 @@
                         id="registerButten"
 */ 
 
-//***************************check login state*********************************************** */
+//***************************CHECK LOGIN STATE ON PAGE LOAD*********************************************** */
 
-function checkLoginState() {
-  if (localStorage.getItem("isLoggedIn") === "true") {
-    return true;
-  }
-  return false;
-}
-
-/* **************************** code menu for register & login page***********************/
-function myMenuFunction() { 
-    var i = document.getElementById("navmenu");
-if(i.className === "nav-menu") {
-   i.className += " responsive";
-} else {
-   i.className = "nav-menu";
-}
- }
+// Get the login/logout links and user name element
+// Check login state on page load
  
-var a=document.getElementById("loginBtn");
-var b=document.getElementById("registerBtn");
-var x=document.getElementById("login");
-var y=document.getElementById("register");
-/* function for switch btween tow forms */
-function loginS(){
-   x.style.left="4px";
-   y.style.right="-520px";
-   a.className += "white-btn";
-   b.className = "btn";
-   x.style.opacity=1;
-   y.style.opacity=0;
-}
-function registerS(){
-   x.style.left="-510px";
-   y.style.right="5px"; 
-   a.className = "btn";
-   b.className += "white-btn";   
-   x.style.opacity=0;
-   y.style.opacity=1;  
-}
 
+loginLink.addEventListener("click", () => {
+  window.location.href = "login.html";
+});
 
-const containerForm = document.querySelector(".form-box");
+logoutLink.addEventListener("click", () => {
+ localStorage.setItem("isLoggedIn", "false");   
+ window.location.href = "index.html";
+});
+
+loginForm.addEventListener("submit", (event) => {
+  // Validation and login logic
+  localStorage.setItem("isLoggedIn", "true");  
+  window.location.href = localStorage.getItem("previousPage");   
+});    
 
 //***************************back to previous page*********************************************** */
-//when user go to login after loggingin he will returen to place he was in 
+//when user go to login after loggingin he will returen to place he was in
 localStorage.setItem("previousPage", window.location.href);
 
-//***************************LOGIN*********************************************** */
+loginLink.addEventListener("click", toggleForms);
+registerLink.addEventListener("click", toggleForms);
 
-const form = document.getElementById("login-form");
-form.addEventListener("submit", login);
-
-function login(event) {
-  event.preventDefault();
-
-  const username = document.getElementById("logusername").value;
-  const password = document.getElementById("logpassword").value;
-
-  const valid = users.some(user => {
-    if (username.includes("@")) {
-      return user.email === username && user.password === password;
-    } else {
-      return user.username === username && user.password === password;
-    }
-  });
-
-  if (valid) {
-    alert("Login successful!");
-    localStorage.setItem("isLoggedIn", "true");
-    const previousPage = localStorage.getItem("previousPage");
-    window.location.href = previousPage;
-  } else {
-    alert("Incorrect username or password!");
-  }
+function toggleForms() {
+  loginForm.classList.toggle("active");
+  registerForm.classList.toggle("active");
 }
 
-const users = [
-  //array of users
-];
-
-//***************************REGISTER*********************************************** */
-
-const regForm = document.getElementById("register-form");
-
-regForm.addEventListener("submit", register);
-
-function register(event) {
-  event.preventDefault();
-  const firstName = document.getElementById("Fname").value;
-  const lastName = document.getElementById("Lname").value;
-  const regUsername = document.getElementById("regUserName").value;
-  const email = document.getElementById("email").value;
-  const regPassword = document.getElementById("regPassword").value;
-  const repeatPassword = document.getElementById("regRepeatPassword").value;
-
-  // Validate the user's details
-  if (!checkUsername(regUsername)) {
-    alert("Invalid username!");
-    return;
-  }
-
-  if (!checkPassword(regPassword)) {
-    alert("Invalid password!");
-    return;
-  }
-
-  if (regPassword !== repeatPassword) {
-    alert("Passwords do not match!");
-    return;
-  }
-
-  if (usernameExists(regUsername)) {
-    alert("Username already exists!");
-    return;
-  }
-
-  saveUser(regUsername, regPassword, firstName, lastName, email);
-
-  alert("Registration successful!");
-  loginS();
-}
-
-function checkUsername(username) {
-  if (username.length < 6) {
-    return false;
-  }
-
-  return true;
-}
-
-function checkPassword(password) {
-  if (password.length < 8) {
-    return false;
-  }
-
-  return true;
-}
-
-function usernameExists(username) {
-  return users.some(user => user.username === username);
-}
-
-function saveUser(username, password, firstName, lastName, email) {
-  const hashedPassword = hashPassword(password);
-  const user = new User(username, hashedPassword, firstName, lastName, email);
-  users.push(user);
-}
-
-function hashPassword(password) {
-  // Code to hash the password goes here
-  return password;
-}
-
-class User {
-  constructor(username, password, firstName, lastName, email) {
-    this.username = username;
-    this.password = password;
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.email = email;
-  }
-}
-
-//***************************LOGOUT*********************************************** */
+//
 
 const logoutBtn = document.getElementById("logoutBtn");
 logoutBtn.addEventListener("click", logout);
 
 function logout() {
   localStorage.setItem("isLoggedIn", "false");
-  window.location.href = "index.html";
+  window.location.href = "homepage.html";
 } 
 
-//***************************CHECK LOGIN STATE ON PAGE LOAD*********************************************** */
 
-if (checkLoginState()) {
-  // User is logged in
-  const loginBtn = document.getElementById("loginBtn");
-  const registerBtn = document.getElementById("registerBtn");
-  const logoutBtn = document.getElementById("logoutBtn");
+// Add [event listener]
+loginLink.addEventListener("click", function(event) {
+  event.preventDefault();
+  localStorage.setItem("previousPage", window.location.href);
+  window.location.href = "login.html";
+});
 
-  loginBtn.style.display = "none";
-  registerBtn.style.display = "none";
-  logoutBtn.style.display = "block";
-} else {
-  // User is not logged in
-  const loginBtn = document.getElementById("loginBtn");
-  const registerBtn = document.getElementById("registerBtn");
-  const logoutBtn = document.getElementById("logoutBtn");
+// Add event listener to the logout link
+logoutLink.addEventListener("click", function(event) {
+  event.preventDefault();
+  localStorage.setItem("isLoggedIn", "false");
+  window.location.href = "homepage.html";
+});
+//***************************CHECK LOGIN STATE ON FORM SUBMISSION*********************************************** */
 
-  loginBtn.style.display = "block";
-  registerBtn.style.display = "block";
-  logoutBtn.style.display = "none";
-}
