@@ -191,6 +191,324 @@ transition: all 0.5s ease;
 
 
 /* programming page styles: list of programming languages on click go to choies */
+
+/*     search for language       */
+
+
+
+.search-things { 
+ width: 100%;
+ min-height: 90px;
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ align-items: center;
+ border-bottom: 1px solid #fff;
+}
+.search-things h1{
+  color: #eee;
+}
+
+.search-things-box{
+ justify-self: center;
+ width: 100%;
+ 
+}
+.search-things-box form{
+ background-color:rgba(164, 164, 164, 0.228);
+ display: flex;
+ justify-content: space-between;
+ max-width: 500px;
+ margin: auto;
+ width: 100%;
+ padding: 10px 12px;
+ border-radius: 7px;
+ box-shadow: rgba(0, 0, 0, 0.505) 0px 5px 15px;
+}
+.search-things-box input{
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  
+}
+.search-things-box input:focus{
+  outline: none;
+}
+.search-things-box i{
+  font-size: 1.5rem;
+  color:#fff;
+}
+.search-things-box button{
+  border:none ;
+  background-color: transparent;
+  box-shadow: rgba(0, 0, 0, 0.313) 0px 5px 15px;
+  border-radius: 7px;
+  padding: 2px;
+  cursor: pointer;
+}
+.select-list{
+  display: flex;  
+  display: grid;
+  grid-template-columns: 0.1fr 0.1fr;
+  align-items: center;
+}
+
+.list-Of-Lang select{
+  border: none;
+  color :#fff;
+  font-size: 1rem;
+  margin-left: 2px ; 
+  margin-right: 2px; 
+  box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 7px;
+  background-color:rgba(164, 164, 164, 0.559);  
+  width: 10%;
+  padding: 13px 8px;
+  cursor: pointer;
+}
+.list-Of-Lang select:focus{
+  outline: none;
+}
+/*cooperative search and city */
+
+ .list-Of-city select{
+   border: none;
+   color :#fff;
+   font-size: 1rem;
+   margin-right: 150px;
+   box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.2);
+   border-radius: 7px;
+   background-color:rgba(164, 164, 164, 0.559);  
+   width: 10%;
+   padding: 13px 8px;
+   cursor: pointer;
+ }
+ .list-Of-city select:focus{
+   outline: none;
+ }
+
+
+ .list-Of-city-2{
+  display: flex;
+ }
+ .list-Of-city-2 select{
+  border: none;
+  color :#fff;
+  font-size: 0.8rem;
+  margin-top: 5px;
+  margin-left: 2px ;
+  box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  background-color:rgba(164, 164, 164, 0.87);  
+  width: 130px;
+  padding: 4px 4px;
+  cursor: pointer;
+ }
+ .list-Of-city-2 select:focus{
+   outline: none;
+ }
+
+
+
+
+
+
+ .text .comment-box-coop{
+  margin-left: 135px;
+  margin-top: -120px;
+  justify-self: center;
+  width: 75%;
+  
+  
+}
+.comment-box-coop{
+  border-radius: 7px;
+  border: none;
+  
+  margin-right: 400px;
+  padding: 1rem;;
+  box-shadow: 0 0.8rem 0.8rem rgba(0, 0, 0, 0.2);
+  background-color:rgba(20, 19, 19, 0.612);
+  width: 500px;
+  display: grid;
+  }
+.comment-box-coop h3, .comment-box-coop h2{
+  color: #eee;
+  text-align: center;
+}
+.comment-form-coop textarea {
+  color: #fff;
+  border-radius: 7px;
+  width: 100%;
+  padding: 5px;
+  margin: 4px 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.4);
+}
+.comment-form-coop button{
+  width: 100%;
+  height: 40px;
+  box-sizing: border-box;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.4);
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+/* end cooperative search and city */
+.text-post input{
+  border: none;
+  color :#fff;
+  font-size: 0.8rem;
+  margin-top: 5px;
+  margin-left: 2px ;
+  box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  background-color:rgba(164, 164, 164, 0.87);  
+  width: 130px;
+  padding: 4px 4px;
+  cursor: pointer;
+}
+
+.list-Of-Lang-2{
+  display: flex;
+ }
+ .list-Of-Lang-2 select{
+  border: none;
+  color :#fff;
+  font-size: 0.8rem;
+  margin-top: 5px;
+  margin-left: 2px ;
+  box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  background-color:rgba(164, 164, 164, 0.87);  
+  width: 130px;
+  padding: 4px 4px;
+  cursor: pointer;
+ }
+ .list-Of-Lang-2 select:focus{
+   outline: none;
+ }
+ .select-gender{
+  display: flex;
+  cursor: pointer;
+ }
+ .select-gender-2{
+  border: none;
+  color :#fff;
+  font-size: 0.8rem;
+  margin-top: 5px;
+  margin-left: 2px ;
+  box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  background-color:rgba(164, 164, 164, 0.87);  
+  width: 130px;
+  padding: 4px 4px;
+ }
+ .select-gender-2 input:focus{
+  outline: none;
+ }
+
+/*.filter button{
+  cursor: pointer;
+  border:none ;
+  background-color: transparent;
+  box-shadow: rgba(0, 0, 0, 0.313) 0px 5px 15px;
+  border-radius: 7px;
+  padding: 2px;
+//*END FILTER BUTTON*/
+
+/*   end search for language   */
+
+.text .comment-box{
+  margin-left: 135px;
+  margin-top: -90px;
+  justify-self: center;
+  width: 75%;
+  
+  
+}
+.comment-box{
+  border-radius: 7px;
+  border: none;
+  margin-right: 3rem;
+  padding: 1rem;;
+  box-shadow: 0 0.8rem 0.8rem rgba(0, 0, 0, 0.2);
+  background-color:rgba(20, 19, 19, 0.612);
+  min-width: 50%;
+  display: grid;
+}
+.comment-box h3, .comment-box h2{
+  color: #eee;
+  text-align: center;
+}
+.comment-form textarea {
+  color: #fff;
+  border-radius: 7px;
+  width: 100%;
+  padding: 5px;
+  margin: 4px 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.4);
+}
+.comment-form button{
+  width: 100%;
+  height: 40px;
+  box-sizing: border-box;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.4);
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+.posted-text{
+  position:relative;
+}
+
+.posted-text::before{
+  content: "";
+  
+  min-height: 100;
+  position: absolute;
+  width: 1px;
+  left: -10px;
+}
+.posted-text:not(:first-child){
+  margin-left: 4rem;
+  margin-top: 1rem;
+  
+}
+.posted-comment{
+  margin-top: 2px;
+  padding: 20px;
+  background-color:rgba(20, 19, 19, 0.612);
+  border-radius: 7px;
+  min-width: 100%;
+  box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+.posted-comment h3, .posted-comment p{
+  margin-bottom: 1rem;
+}
+.comment-footer{
+  display: flex;
+  font-size: 16px;
+  opacity: 0.6;
+  gap: 30px;
+  justify-content: flex-end;
+  align-items:center ;
+}
+.show-replise{
+  cursor: pointer;
+}
+
+
 /*--------------------------------------*/
 /* end programming page styles: list of programming languages on click go to choies */
 
