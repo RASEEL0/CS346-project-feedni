@@ -82,10 +82,145 @@
         <div class="main-content">
             <div class="container">
                 <!-- page content write your code here!!!-->
-                <h1>home page</h1>
-                <div class="logo">
-                    <img src="logoNobackground.PNG" width="100" height="100" alt="website logo"> 
+                <!--search-->
+                
+                  <div class="search-things">
+                    <div>
+                       <h1>Languages</h1>
+                    </div>
+                
+                    <div class="search-things-box">
+                       <form>
+                        <div class="input-box-l">
+                            <input type="text"  placeholder="Search">
+                        </div>
+                        <div>
+                            <button><i class='bx bx-search'></i></box-icon></button> 
+                        </div>
+                       </form>
+                    </div>
+
+                    <div class="select-list">
+                        <label class="list-Of-Lang">
+                            <select > 
+                                <option selected>--</option>
+                                <option>JAVA</option>
+                                <option>PYTHON</option>
+                                <option>HTML</option>
+                                <option>other</option>
+                            </select>
+                        </label>
+                       <!-- <div class="filter">
+                           <button><i class='bx bx-filter'></i></button>
+                        </div> -->
+                    </div>
+                   
+               
                 </div>
+            <!-- end search-->
+            <!--text post-->
+            
+            <div class="text">
+
+            <div class="text-post">
+               <input type="date">
+            </div>
+
+            <div class="select-list-2">
+               <label class="list-Of-Lang-2">
+                   <select > 
+                       <option selected>--</option>
+                       <option>JAVA</option>
+                       <option>PYTHON</option>
+                       <option>HTML</option>
+                       <option>other</option>
+                   </select>
+               </label>
+            </div>
+            
+            <div class="select-gender">
+                <div class="select-gender-2">
+                   <input type="radio" name="gender"> Male
+                   <input type="radio" name="gender"> Female
+                </div>
+            </div>
+            
+            <div class="comment-box">
+               <h3> Share Your Experienc </h3>
+               <form class="comment-form">   
+                    <textarea rows="10" placeholder="Write your Experienc"></textarea>
+                    <button type="submit"><h2>SHARE IT NOW!!</h2></button>
+                </form>
+           </div>
+           </div>
+           <!--end text post-->
+            <!--end text post-->
+            <!--posted-text-->
+            <div class="posted-text">
+                <div class="posted-comment"  id="first-comment">
+                    <h3 class="comment-title">first comment</h3>
+                    <p>comment-------------------------------
+                        ----------------------</p>
+                
+                <div class="comment-footer">
+                    <div>likes 21</div>
+                    <div>dislikes 23</div>
+                    <div class="show-replise">replay2</div>
+                </div>
+                </div>
+
+                <!--nested cooment-->
+                <div class="posted-text">
+                    <div class="posted-comment" dataset="first-comment" id="first-reply">
+                        <h3 class="comment-title">first comment</h3>
+                        <p>comment-------------------------------
+                            ----------------------</p>
+                    
+                    <div class="comment-footer">
+                        <div>likes 21</div>
+                        <div>dislikes 23</div>
+                        <div class="show-replise">replay 2</div>
+                    </div>
+                    </div>
+                    <div class="posted-comment" datset="first-comment">
+                        <h3 class="comment-title">first comment</h3>
+                        <p>comment-------------------------------
+                            ----------------------</p>
+                    
+                    <div class="comment-footer">
+                        <div>likes 21</div>
+                        <div>dislikes 23</div>
+                        <div class="show-replise">replay2</div>
+                    </div>
+                    </div>  
+                </div>
+                <div class="posted-text">
+                    <div class="posted-comment" dataset="first-comment" id="first-reply">
+                        <h3 class="comment-title">first comment</h3>
+                        <p>comment-------------------------------
+                            ----------------------</p>
+                    
+                    <div class="comment-footer">
+                        <div>likes 21</div>
+                        <div>dislikes 23</div>
+                        <div class="show-replise">replay2</div>
+                    </div>
+                    </div>
+                    <div class="posted-comment">
+                        <h3 class="comment-title">first comment</h3>
+                        <p>comment-------------------------------
+                            ----------------------</p>
+                    
+                    <div class="comment-footer">
+                        <div>likes 21</div>
+                        <div>dislikes 23</div>
+                        <div class="show-replise">replay2</div>
+                    </div>
+                    </div>
+                </div>
+
+            </div>
+             <!--end posted-text-->
             </div>
         </div>
 
