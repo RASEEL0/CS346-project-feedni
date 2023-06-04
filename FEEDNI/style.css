@@ -32,7 +32,7 @@ top: 0;
 height: 100vh;
 width: 90px;
 background-color: #ffffffc0;
-
+z-index: 100;
 padding: 0.4rem 0.8rem;
 transition: all 0.5s ease;
 }
