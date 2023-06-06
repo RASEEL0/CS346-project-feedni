@@ -627,11 +627,11 @@ margin-left: 70px;
   transition: .3s ease;
 }
 
-.posted-text{
+.comment-container{
   position:relative;
 }
 
-.posted-text::before{
+.comment-container::before{
   content: "";
   
   min-height: 100;
@@ -639,12 +639,12 @@ margin-left: 70px;
   width: 1px;
   left: -10px;
 }
-.posted-text:not(:first-child){
+.comment-container:not(:first-child){
   margin-left: 4rem;
   margin-top: 1rem;
   
 }
-.posted-comment{
+.comment-card{
   margin-top: 2px;
   padding: 20px;
   background-color:rgba(20, 19, 19, 0.612);
@@ -652,7 +652,7 @@ margin-left: 70px;
   min-width: 100%;
   box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
-.posted-comment h3, .posted-comment p{
+.comment-card h3, .comment-card p{
   margin-bottom: 1rem;
 }
 .comment-footer{
