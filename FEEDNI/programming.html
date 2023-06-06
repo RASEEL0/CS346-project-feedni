@@ -150,16 +150,16 @@
             
             <div class="comment-box">
                <h3> Share Your Experienc </h3>
-               <form class="comment-form">   
-                <textarea id="experienceText" rows="10" placeholder="Write your Experienc"></textarea>
-                <button id="shareExperienceBtn">Share Experience NOW!</button>
-                </form>
+               <div class="comment-form" id="comment-box">   
+                <input type="text" id ="textArea" placeholder="Write your Experienc"></input>
+                <button onclick="addComment()"><h2>SHARE IT NOW!!</h2></button>
+                </div>
            </div>
            </div>
            <!--end text post-->
              <!--comment-container-->
             <div class="comment-container" id="first-comment">
-                <div class="comment-card">
+                <div class="comment-card" id="comment">
                     <h3 class="comment-title">first comment</h3>
                     <p>comment-------------------------------
                         ----------------------</p>
