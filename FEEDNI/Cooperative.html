@@ -10,8 +10,14 @@
         <link rel="stylesheet" href="style.css">
         <script src="sidebar.js" async></script>
         <script src="auth.js" async></script>
-        <script src="user.js" async></script>
-        <script src="javaA.js" async></script>
+       <script src="user.js" async></script>
+       <script src="javaA.js" async></script>
+       <script src="app.js" async></script>
+       <script src="server.js" async></script>
+       <script src="shareEX.js" async></script>
+
+
+
     </head>
    
     <body>
@@ -172,8 +178,8 @@
             <div class="comment-box-coop">
                <h3> Share Your Experienc </h3>
                <form class="comment-form-coop">   
-                    <textarea rows="10" placeholder="Write your Experienc"></textarea>
-                    <button type="submit"><h2>SHARE IT NOW!!</h2></button>
+                    <textarea id="experienceText" rows="10" placeholder="Write your Experienc"></textarea>
+                    <button id="shareExperienceBtn">Share Experience NOW!</button>
                 </form>
            </div>
            </div>
@@ -194,8 +200,7 @@
                 <!--nested cooment-->
                 <div class="comment-container" dataset="first-comment" id="fist-replay">
                     <div class="comment-card">
-                        <h3 class="comment-title">first replay</h3>
-                        <p>comment-------------------------------
+<div class="comment" data-parent="first-comment">                        <p>comment-------------------------------
                             ----------------------</p>
                     
                     <div class="comment-footer">
@@ -236,7 +241,8 @@
              <!--end comment-container-->
         </div>
 
-
+    </div>
+        </div>
     </body>
    
 </html>

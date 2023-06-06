@@ -1,4 +1,41 @@
 //user.js file
+  // Connect to MongoDB
+  const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017,localhost:27018/');
+// User schema
+const userSchema = new mongoose.Schema({
+  username: { 
+    type: String,
+    unique: true
+  }, 
+  password: String,
+  firstName: String,
+  lastName: String,
+  email: { 
+    type: String,
+    unique: true
+  }
+});
+
+  const User = mongoose.model('User', userSchema);
+// Save user function
+function saveUser(username, password, firstName, lastName, email) {
+  const hashedPassword = hashPassword(password);
+const user = new User({
+username,
+password,
+firstName,
+lastName,
+email
+});
+user.save()
+.then(() => {
+  console.log('User saved!');
+})
+.catch(err => {
+  console.log(err);  
+});
+}
 class User {
     constructor(username, password, firstName, lastName, email) {
       this.username = username;
@@ -14,12 +51,7 @@ class User {
     return hash.digest("hex");
   }
   
-  function saveUser(username, password, firstName, lastName, email) {
-    const hashedPassword = hashPassword(password);
-    const user = new User(username, hashedPassword, firstName, lastName, email);
-    user.push(user);
-  }
-  
+
   function User(username, password, firstName, lastName, email) {
     this.username = username;  
     this.password = password;
@@ -43,9 +75,12 @@ class User {
         }
         return true;
         }
-      function usernameExists(username) {
-        return users.some(user => user.username === username);
-      }
+        function usernameExists(username) {
+          return User.findOne({ username })  
+            .then(user => {
+              return user ? true : false;
+            });   
+        }
   }  
   function validatePassword(regPassword){
   function checkPassword(password) {
@@ -63,3 +98,4 @@ class User {
         return;
       }
   }   
+

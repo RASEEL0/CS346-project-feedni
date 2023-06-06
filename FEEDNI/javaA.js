@@ -1,3 +1,4 @@
+//javaA.js
 /*login username       id="logusername"
   login  password      id="logpassword"
   register first name  id="Fname"
@@ -67,5 +68,15 @@ logoutLink.addEventListener("click", function(event) {
   localStorage.setItem("isLoggedIn", "false");
   window.location.href = "homepage.html";
 });
-//***************************CHECK LOGIN STATE ON FORM SUBMISSION*********************************************** */
+//***************************CHECK LOGIN  *********************************************** */
 
+// Login function
+function login(username, password) {
+  return User.findOne({ username, password }).then(user => {
+  if (user) {
+  return true; // Login successful
+  } else {
+  return false; // Login failed
+  }
+  });
+  }

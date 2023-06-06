@@ -3,7 +3,8 @@
 loginForm.addEventListener("submit",handleLoginFormSubmission);
 regForm.addEventListener("submit", handleRegisterFormSubmission);
 
-function handleLoginFormSubmission() {
+function handleLoginFormSubmission(event) {
+  event.preventDefault();
 // Get form elements   
 const loginForm = document.getElementById("loginForm");
 const usernameInput = loginForm.username.value;
@@ -19,18 +20,24 @@ const passwordInput = loginForm.password.value;
   });//end valdate user
 //check log in succesul
   if (valid) {
-    alert("Login successful!");
+    // On login form submit:
+  login(username, password).then(result => {
+  if (result) {
+  // Login successful
+  alert("Login successful!");
+  } else {
+  // Login failed
+  alert("Incorrect username or password!");
+  }
+  })
     localStorage.setItem("isLoggedIn", "true");
     const previousPage = localStorage.getItem("previousPage");
     window.location.href = previousPage;
-  } else {
-    alert("Incorrect username or password!");
-  }//end check log in succesul
+  } //end check log in succesul
 
   // Update the login/logout links and [user name element](poe://www.poe.com/_api/key_phrase?phrase=user%20name%20element&prompt=Tell%20me%20more%20about%20user%20name%20element.)
   if (valid) {
     // User is logged in // Show logged in UI  
-
     loginLink.style.display = "none";
     logoutLink.style.display = "block";
     userName.innerText = "clint name"; // Replace with actual user name
@@ -44,7 +51,7 @@ const passwordInput = loginForm.password.value;
 
  
 }//end function handleLoginFormSubmission() {
-  function handleRegisterFormSubmission() {
+  function handleRegisterFormSubmission(event) {
     const registerForm = document.getElementById("registerForm");
     event.preventDefault();
     const firstName = document.getElementById("Fname").value;
@@ -57,7 +64,9 @@ const passwordInput = loginForm.password.value;
 
   // Validate the user's details
   if (user.isValid()) {
-    user.save();  
+    // On register form submit:
+    saveUser(regUsername, regPassword, firstName, lastName, email);
+   
     alert("you are rigistered now !")
     loginLink.style.display = "none"; 
   } else { 
@@ -86,7 +95,7 @@ const passwordInput = loginForm.password.value;
   // Get form elements   
   function isValid(){ 
     if(validateUsername(regUsername) && validatePassword(regPassword)){ 
-    saveUser(regUsername, regPassword, firstName, lastName, email);
+      saveUser(regUsername, regPassword, firstName, lastName, email);
   }}
 
 function showLoginForm() {
@@ -106,3 +115,11 @@ function checkLoginState() {
   return localStorage.getItem("isLoggedIn") === "true";
 }
 
+usernameExists(req.body.username)
+  .then(exists => {
+    if (exists) {
+      // Username exists, show error 
+    } else {
+      // Username is available, save user
+    }
+  })
