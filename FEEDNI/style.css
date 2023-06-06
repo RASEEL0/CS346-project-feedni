@@ -494,7 +494,7 @@ margin-left: 70px;
   color: #eee;
   text-align: center;
 }
-.comment-form-coop textarea {
+.comment-form-coop input {
   color: #fff;
   border-radius: 7px;
   width: 100%;
@@ -604,7 +604,7 @@ margin-left: 70px;
   color: #eee;
   text-align: center;
 }
-.comment-form textarea {
+.comment-form input {
   color: #fff;
   border-radius: 7px;
   width: 100%;
