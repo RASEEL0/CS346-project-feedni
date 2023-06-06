@@ -473,6 +473,12 @@ margin-left: 70px;
   
   
 }
+.comment-box.shareExperienceBtn{
+  box-shadow: 0 0.8rem 0.8rem rgba(0, 0, 0, 0.2);
+  background-color:rgba(20, 19, 19, 0.116);
+  text-align: center;
+
+}
 .comment-box-coop{
   border-radius: 7px;
   border: none;
@@ -621,24 +627,24 @@ margin-left: 70px;
   transition: .3s ease;
 }
 
-.comment-container{
- 
+.posted-text{
   position:relative;
 }
 
-.comment-container::before{
-  content: ""; 
+.posted-text::before{
+  content: "";
+  
   min-height: 100;
   position: absolute;
   width: 1px;
   left: -10px;
 }
-.comment-container:not(:first-child){
+.posted-text:not(:first-child){
   margin-left: 4rem;
   margin-top: 1rem;
   
 }
-.comment-card{
+.posted-comment{
   margin-top: 2px;
   padding: 20px;
   background-color:rgba(20, 19, 19, 0.612);
@@ -646,7 +652,7 @@ margin-left: 70px;
   min-width: 100%;
   box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
-.comment-card h3, .comment-card p{
+.posted-comment h3, .posted-comment p{
   margin-bottom: 1rem;
 }
 .comment-footer{
